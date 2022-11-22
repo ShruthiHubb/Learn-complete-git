@@ -13,7 +13,7 @@ pipeline:
         spec:
           deploymentType: Kubernetes
           service:
-            serviceRef: servicek8demo
+            serviceRef: service1
             serviceInputs:
               serviceDefinition:
                 type: Kubernetes
@@ -23,10 +23,10 @@ pipeline:
                       primaryArtifactRef: <+input>
                       sources: <+input>
           environment:
-            environmentRef: envdemoss
+            environmentRef: env1
             deployToAll: false
             infrastructureDefinitions:
-              - identifier: infrafordemos
+              - identifier: infrademo
           execution:
             steps:
               - stepGroup:
@@ -37,7 +37,7 @@ pipeline:
                         name: Canary Deployment
                         identifier: canaryDeployment
                         type: K8sCanaryDeploy
-                        timeout: 12m
+                        timeout: 10m
                         spec:
                           instanceSelection:
                             type: Count
