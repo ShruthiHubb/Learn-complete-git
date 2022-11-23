@@ -4,25 +4,19 @@ pipeline:
   projectIdentifier: demotestinputsets
   orgIdentifier: default
   tags: {}
-  properties:
-    ci:
-      codebase:
-        connectorRef: connectorfordemo
-        repoName: harness-cie-lab
-        build: <+input>
   stages:
     - stage:
         name: Demo-inputset
         identifier: Demoinputset
-        description: ""
         type: CI
         spec:
-          cloneCodebase: true
+          cloneCodebase: false
           infrastructure:
             type: KubernetesDirect
             spec:
               connectorRef: account.TestConenctor
               namespace: default
+              automountServiceAccountToken: true
               nodeSelector: {}
               os: Linux
           execution:
