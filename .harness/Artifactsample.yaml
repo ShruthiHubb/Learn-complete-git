@@ -1,0 +1,25 @@
+inputSet:
+  identifier: "Artifactsample"
+  pipeline:
+    identifier: "demopipeline"
+    stages:
+    - stage:
+        identifier: "deployapp"
+        type: "Deployment"
+        spec:
+          service:
+            serviceInputs:
+              serviceDefinition:
+                type: "Kubernetes"
+                spec:
+                  artifacts:
+                    primary:
+                      primaryArtifactRef: "sample-artifact"
+                      sources:
+                      - identifier: "sample-artifact"
+                        type: "DockerRegistry"
+                        spec:
+                          tag: "stable-perl"
+  name: "Artifact-sample"
+  orgIdentifier: "default"
+  projectIdentifier: "HarnessGitExperience"
