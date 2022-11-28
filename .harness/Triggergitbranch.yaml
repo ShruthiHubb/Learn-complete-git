@@ -1,0 +1,14 @@
+inputSet:
+  identifier: "Triggergitbranch"
+  pipeline:
+    identifier: "newbuild"
+    properties:
+      ci:
+        codebase:
+          build:
+            type: "branch"
+            spec:
+              branch: "<+trigger.targetBranch>"
+  name: "Trigger-git-branch"
+  orgIdentifier: "default"
+  projectIdentifier: "HarnessGitExperience"
